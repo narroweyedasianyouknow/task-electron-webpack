@@ -1,0 +1,51 @@
+@import "../../theme";
+@import "../../variables";
+
+.tasks-list {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+  @include theme-aware("background", "bg-body");
+  @include theme-aware("color", "text-100");
+  user-select: none;
+  .task-item {
+    margin: 0 10px;
+    border-radius: 5px;
+    @include theme-aware("background", "bg-second");
+    font: $footnote;
+    margin-bottom: 5px;
+    padding: 0 10px;
+    cursor: pointer;
+    @include theme-aware("box-shadow", "ui-shadow-message");
+    
+    &:hover{
+      @include theme-aware("background", "bg-hover");
+      
+    }
+    &__title {
+      @include theme-aware("color", "text-100");
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      font: $body;
+    }
+    &__description{
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      word-break: break-all;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 3; 
+      margin-bottom: 10px;
+    }
+    &--remove{
+      width: max-content;
+      cursor: pointer;
+      background-color: $color-red;
+      color: $color-white;
+      margin: 5px;
+      font: $body-bold;
+      margin-top: 0;
+    }
+  }
+}
