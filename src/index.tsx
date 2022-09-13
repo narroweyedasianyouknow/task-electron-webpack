@@ -3,9 +3,17 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import './index.scss'
 declare global {
-  interface Window { webApp: {
-    closeApp: () => void
-  }; }
+  interface global {
+    fullSized: boolean;
+  }
+  interface Window {
+    fullSized: boolean,
+    webApp: {
+      closeApp: () => void;
+      minimizeApp: () => void;
+      fullscreenApp: () => void;
+    };
+  }
 }
 
 

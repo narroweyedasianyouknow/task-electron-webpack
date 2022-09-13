@@ -7,7 +7,8 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "webpack-dev-server --port 1500 --mode development --open",
+    "start": "webpack-dev-server --port 1500 --mode development && electron-forge start",
+    "react": "webpack-dev-server --port 1500 --mode development",
     "electron": "electron-forge start",
     "build": "webpack --mode production",
     "package": "electron-forge package",

@@ -12,7 +12,9 @@ function createWindow() {
     minWidth: 300,
     webPreferences: {
       preload: path.join(__dirname, "/preload.ts"),
-      contextIsolation: true
+      contextIsolation: true,
+      nodeIntegration: true,
+      webviewTag: true,
     },
     frame: false,
     autoHideMenuBar: true,
@@ -20,11 +22,17 @@ function createWindow() {
 
   // mainWindow.loadURL(`file://${path.join(__dirname, "../dist/index.html")}`);
   mainWindow.loadURL(baseURL);
-  
+  ipcMain.on('minimize-main-window', () => {
+    mainWindow.minimize()
+  })
+  ipcMain.on('fullscreen-main-window', () => {
+    mainWindow.setFullScreen(!mainWindow.isFullScreen())
+  })
 }
 ipcMain.on('close-main-window', () => {
   app.quit()
 })
+
 app.whenReady().then(() => {
   createWindow();
 

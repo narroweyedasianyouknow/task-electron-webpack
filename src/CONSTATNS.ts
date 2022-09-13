@@ -1,0 +1,1 @@
+export const ON_LOAD_PAGE = 'on-load-page'
